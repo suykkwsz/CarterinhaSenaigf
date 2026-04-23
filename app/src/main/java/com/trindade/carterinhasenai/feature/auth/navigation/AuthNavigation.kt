@@ -6,7 +6,7 @@ import com.trindade.carterinhasenai.app.navigation.Routes
 import com.trindade.carterinhasenai.feature.auth.presentation.LoginScreen
 
 fun NavGraphBuilder.authScreen(
-    onNavigateToCarteirinha: () -> Unit
+    OnNavigateToCarteirinha: () -> Unit
 ){
     composable(Routes.Login){
         LoginScreen(

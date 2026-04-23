@@ -35,7 +35,7 @@ fun LoginScreen (modifier: Modifier = Modifier,
         )
 
         Button(
-            onClick = {},
+            onClick = onLoginClick,
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.primary ,
                 contentColor = MaterialTheme.colorScheme.onPrimary
