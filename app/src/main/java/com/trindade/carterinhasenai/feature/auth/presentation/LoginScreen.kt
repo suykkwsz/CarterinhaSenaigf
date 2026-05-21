@@ -45,12 +45,9 @@ fun LoginScreen(
 
         Button(
             onClick = {
-                if (email == "pedro" && senha == "1234") {
-                    mensagemErro = "Login realizado com sucesso!"
+
                     onLoginClick()
-                } else {
-                    mensagemErro = "Usuário ou senha inválidos"
-                }
+
             },
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.primary,
