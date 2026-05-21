@@ -9,38 +9,59 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
+fun LoginScreen(
+    modifier: Modifier = Modifier,
+    onLoginClick: () -> Unit = {}
+) {
 
-fun LoginScreen (modifier: Modifier = Modifier,
-                 onLoginClick: () -> Unit = {}){
+    var email by remember { mutableStateOf("") }
+    var senha by remember { mutableStateOf("") }
+    var mensagemErro by remember { mutableStateOf("") }
+
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
         Text("Login")
+
         TextField(
-            value = "",
-            onValueChange = {},
-            label = { Text("email")}
+            value = email,
+            onValueChange = { email = it },
+            label = { Text("Email") }
         )
+
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
-            label = {Text("senha")}
+            value = senha,
+            onValueChange = { senha = it },
+            label = { Text("Senha") }
         )
 
         Button(
-            onClick = onLoginClick,
+            onClick = {
+                if (email == "pedro" && senha == "1234") {
+                    mensagemErro = "Login realizado com sucesso!"
+                    onLoginClick()
+                } else {
+                    mensagemErro = "Usuário ou senha inválidos"
+                }
+            },
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.primary ,
+                containerColor = MaterialTheme.colorScheme.primary,
                 contentColor = MaterialTheme.colorScheme.onPrimary
             )
-        ) { }
-    }
+        ) {
+            Text("Entrar")
+        }
 
+        if (mensagemErro.isNotEmpty()) {
+            Text(text = mensagemErro)
+        }
+    }
 }
