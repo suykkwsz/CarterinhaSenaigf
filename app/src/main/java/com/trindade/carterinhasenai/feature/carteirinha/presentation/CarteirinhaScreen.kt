@@ -1,6 +1,7 @@
 package com.trindade.carterinhasenai.feature.carteirinha.presentation
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,13 +25,12 @@ import com.trindade.carterinhasenai.R
 
 @Composable
 fun CarteirinhaScreen(
-    modifier: Modifier = Modifier,
-    onBackCLick: () -> Unit
-) {
+    modifier: Modifier = Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = modifier.fillMaxSize()
+            .background(Color.Black)
     ) {
         Image(
             painter = painterResource(id = R.drawable.senai_logo),

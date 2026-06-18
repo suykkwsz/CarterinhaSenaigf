@@ -5,6 +5,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.trindade.carterinhasenai.feature.auth.navigation.authScreen
 import com.trindade.carterinhasenai.feature.carteirinha.navigation.carteirinhaScreen
+import com.trindade.carterinhasenai.feature.home.navigation.homeScreen
+import com.trindade.carterinhasenai.feature.unidadecurricular.navigation.componentesScreen
 
 @Composable
 fun AppNavHost() {
@@ -14,15 +16,22 @@ fun AppNavHost() {
         navController = navController,
         startDestination = Routes.Login
     ) {
-
         authScreen {
-            navController.navigate(Routes.Carteirinha)
+            navController.navigate(Routes.Home)
         }
 
-        carteirinhaScreen(
-            onNavigateToLogin = {
+        homeScreen(
+            onNavigateToCarteirinha = {
                 navController.navigate(Routes.Carteirinha)
+            },
+            onNavigateToComponentes = {
+                navController.navigate(Routes.Componentes)
             }
         )
+
+        carteirinhaScreen()
+
+        componentesScreen()
+
     }
 }
